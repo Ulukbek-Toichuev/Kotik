@@ -17,7 +17,7 @@ public class Kotik {
     Указатель this можно использовать
     для вызова перегруженного конструктора
      */
-    public Kotik(int weight, String name) {
+    public Kotik(int weight, String name){
         this(5, weight, name, "Мяу!");
     }
 
@@ -28,65 +28,47 @@ public class Kotik {
         this.meow = meow;
     }
 
-    /// get-set Prettiness
-    public int getPrettiness(){
-        return prettiness;
+    //get-set satiety
+    public void setSatiety(int satiety) {
+        this.satiety = satiety;
+    }
+    public int getSatiety() {
+        return satiety;
     }
 
-    public void setPrettiness(int prettiness){
-        this.prettiness = prettiness;
+    public boolean play(){
+        boolean bool = true;
+        if (bool)
+            System.out.println("Play");
+        return bool;
     }
 
-    ///get-set Weight
-    public int getWeight(){
-        return weight;
+    public boolean sleep(){
+        boolean bool = true;
+        if (bool)
+            System.out.println("Sleep");
+        return bool;
     }
 
-    public void setWeight(int weight){
-        this.weight = weight;
+    public boolean chaseMouse(){
+        boolean bool = true;
+        if (bool)
+            System.out.println("Chase mouse");
+        return bool;
     }
 
-    ///get-set Name
-    public String getName(){
-        return name;
+    public boolean goToTheCatLitter(){
+        boolean bool = true;
+        if (bool)
+            System.out.println("Go to the cat litter");
+        return bool;
     }
 
-    public void setName(String a){
-        this.name = a;
-    }
-
-    /// get-set Meow
-    public String getMeow(){
-        return meow;
-    }
-
-    public void setMeow(String meow){
-        this.meow = meow;
-    }
-
-    public boolean play()
-    {
-
-    }
-
-    public boolean sleep()
-    {
-
-    }
-
-    public boolean chaseMouse()
-    {
-
-    }
-
-    public boolean goToTheCatLitter()
-    {
-
-    }
-
-    public boolean goForAWalk()
-    {
-
+    public boolean goForAWalk(){
+        boolean bool = true;
+        if (bool)
+            System.out.println("Go for a walk");
+        return bool;
     }
 
 
