@@ -31,6 +31,42 @@ public class Kotik {
         this.meow = meow;
     }
 
+    //Сеттеры и геттеры на prettinness
+    public void setPrettiness(int prettiness) {
+        this.prettiness = prettiness;
+    }
+
+    public int getPrettiness() {
+        return prettiness;
+    }
+
+    //Сеттеры и геттеры на weight
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    //Сеттеры и геттеры на name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    //Сеттеры и геттеры на meow
+    public void setMeow(String meow) {
+        this.meow = meow;
+    }
+
+    public String getMeow() {
+        return meow;
+    }
+
     public int eat() {
         if (satiety <= 0) {
             int chois;
@@ -70,7 +106,7 @@ public class Kotik {
     }
 
         public  boolean play(){
-            int a = (int) (Math.random() * 2 + 1);
+            int a = (int) (Math.random() * 2);
             switch (a) {
                 case 0:
                     System.out.println("Котик играется с мягкой игрушкой.");
@@ -83,7 +119,7 @@ public class Kotik {
         }
 
         public boolean sleep () {
-        int a = (int) (Math.random() * 2 + 1);
+        int a = (int) (Math.random() *2);
             switch (a) {
                 case 0:
                     System.out.println("Котик спит на диване.");
@@ -96,7 +132,7 @@ public class Kotik {
         }
 
         public boolean chaseMouse () {
-            int a = (int) (Math.random() * 2 + 1);
+            int a = (int) (Math.random() * 2);
             switch (a) {
                 case 0:
                     System.out.println("Котик гоняется за мышью во дворе.");
@@ -109,7 +145,7 @@ public class Kotik {
         }
 
         public boolean goToTheCatLitter () {
-            int a = (int) (Math.random() * 2 + 1);
+            int a = (int) (Math.random() * 2);
             switch (a) {
                 case 0:
                     System.out.println("Котик решил сходить в лоток по маленькому.");
@@ -122,7 +158,7 @@ public class Kotik {
         }
 
         public boolean goForAWalk () {
-            int a = (int) (Math.random() * 2 + 1);
+            int a = (int) (Math.random() * 2);
             switch (a) {
                 case 0:
                     System.out.println("Котик гуляет с хозяином по парку.");
@@ -162,7 +198,7 @@ public class Kotik {
                         break;
                 }
             } else if (satiety > 0) {
-                int a = (int) (Math.random() * 5 +1);
+                int a = (int) (Math.random() * 5);
                 switch (a) {
                     case 0:
                         System.out.println(goForAWalk());
