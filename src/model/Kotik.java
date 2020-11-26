@@ -171,53 +171,29 @@ public class Kotik {
         }
 
         public void liveAnotherDay () {
-
-            if (satiety <= 0) {
-                eat();
-
-                for (int i = 0; i < 24; i++)
-                    System.out.print("#");
-                    System.out.println(" ");
-
-                int a = (int) (Math.random() * 5 + 1);
-                switch (a) {
-                    case 0:
-                        System.out.println(goForAWalk());
-                        break;
-                    case 1:
-                        System.out.println(sleep());
-                        break;
-                    case 2:
-                        System.out.println(play());
-                        break;
-                    case 3:
-                        System.out.println(goToTheCatLitter());
-                        break;
-                    case 4:
-                        System.out.println(chaseMouse());
-                        break;
-                }
-            } else if (satiety > 0) {
-                int a = (int) (Math.random() * 5);
-                switch (a) {
-                    case 0:
-                        System.out.println(goForAWalk());
-                        break;
-                    case 1:
-                        System.out.println(sleep());
-                        break;
-                    case 2:
-                        System.out.println(play());
-                        break;
-                    case 3:
-                        System.out.println(goToTheCatLitter());
-                        break;
-                    case 4:
-                        System.out.println(chaseMouse());
-                        break;
-                }
+        for (int i = 0; i < 24; i++){
+            int a = (int) (Math.random()*6+1);
+            switch (a) {
+                case 1:
+                    System.out.println(i + " час " + eat());
+                    break;
+                case 2:
+                    System.out.println(i + " час " + play());
+                    break;
+                case 3:
+                    System.out.println(i + " час " + sleep());
+                    break;
+                case 4:
+                    System.out.println(i + " час " + chaseMouse());
+                    break;
+                case 5:
+                    System.out.println(i + " час " + goToTheCatLitter());
+                    break;
+                case 6:
+                    System.out.println(i + " час " + goForAWalk());
+                    break;
             }
-
+        }
 
         }
     }
