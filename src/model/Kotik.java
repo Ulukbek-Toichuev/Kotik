@@ -13,6 +13,13 @@ public class Kotik {
     private String food;
     private boolean b = true;
     private Scanner scanner = new Scanner(System.in);
+    static int classObjects = 0;
+
+    public static int catCount(){
+        classObjects++;
+        System.out.println( "Создано: " + classObjects + " котика");
+        return classObjects;
+    }
 
     // Конструктор без параметров, он идентичен конструктору по умолчанию,
     // который сюда бы подставила Java,
@@ -34,6 +41,7 @@ public class Kotik {
         this.weight = weight;
         this.name = name;
         this.meow = meow;
+        classObjects++;
     }
 
     //Сеттеры и геттеры на food
