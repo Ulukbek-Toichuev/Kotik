@@ -6,8 +6,5 @@ public class Application {
         Kotik kotik1 = new Kotik(6, 4, "Вася", "Мяу!");
 
         kotik.liveAnotherDay();
-        System.out.println(kotik.getWeight());
-        System.out.println(kotik.getName());
-
     }
 }

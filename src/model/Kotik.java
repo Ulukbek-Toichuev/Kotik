@@ -6,16 +6,18 @@ public class Kotik {
     private int weight;
     private String name;
     private String meow;
-    private final int satiety = (int) (Math.random() *(2+1)) - 1;
+    private int satiety;
     private final String hungry= "Судя по тому как он истошно мяукает, думаю его стоит покормить.";
     private final String full= "Есть он сейчас точно не хочет.";
+    private final String kittyEat = "Котик - кушает.";
+    private String food;
+    private boolean b = true;
     // Конструктор без параметров, он идентичен конструктору по умолчанию,
     // который сюда бы подставила Java,
     // Но она его не подставит, по той причине, 
     // что ниже определяется другой (перегруженный) конструктор, с параметрами.
     public Kotik() {
     }
-
     /*
     Указатель this можно использовать
     для вызова перегруженного конструктора
@@ -29,6 +31,22 @@ public class Kotik {
         this.weight = weight;
         this.name = name;
         this.meow = meow;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public void setSatiety(int satiety) {
+        this.satiety = satiety;
+    }
+
+    public int getSatiety() {
+        return satiety;
     }
 
     //Сеттеры и геттеры на prettinness
@@ -67,42 +85,56 @@ public class Kotik {
         return meow;
     }
 
-    public int eat() {
-        if (satiety <= 0) {
-            int chois;
-            System.out.println(hungry + "\n" + "Покормите кота!");
-            System.out.println("Нажмите 0 чтобы выбрать Сухой корм" + "\n"
-                    + "Нажмите 1 чтобы выбрать Консервы" + "\n" + "Нажмите 2 чтобы выбрать Натуральная еда");
-            Scanner scanner = new Scanner(System.in);
-            if (scanner.hasNextInt()) {
-                chois = scanner.nextInt();
-            } else {
-                System.out.println("Вы ввели не число! Повторите ввод!");
-                return eat();
-            }
-            if (chois > 2){
-                System.out.println( "Вы ввели число больше 2ух!");
-                return eat();
-            }
+    public boolean eat(boolean b){
+        this.b = b;
+        int a = (int) (Math.random()*(2+1)) - 1;
+        switch (a) {
+            case -1:
+            case 0:
+                System.out.println(hungry);
+                break;
+            case 1:
+                System.out.println(full);
+                break;
+        }
+        return b;
+    }
 
-            switch (chois) {
-                case 0:
-                    System.out.println("Котику понравился ваш выбор теперь он сытый " +
-                            "практически на целый день!");
-                    break;
-                case 1:
-                    System.out.println("Котик: кушает с большим аппетитом.");
-                    break;
-                case 2:
-                    System.out.println("Натуральная еда, то что надо для " +
-                            "здорового образа жизни. Ваш питомец тоже так считает, " +
-                            "судя по тому как он всё скушал быстро.");
-                    break;
-            }
-        } else if (satiety > 0) {
+    public int eat(int value){
+        satiety = value;
+        satiety = (int) (Math.random()*(2+1)) - 1;
+        return satiety;
+    }
+
+    public String eat(String food, int value){
+        this.food = food;
+        satiety = value;
+        if (eat(getSatiety()) <= 0){
+
+        System.out.println("Чем хотите покормить кота?" + "\n" +
+                "1) корм" + "\n" + "2) консервы" + "\n" + "3) натуральная еда");
+            Scanner scanner = new Scanner(System.in);
+            food = scanner.nextLine();
+
+        switch (food){
+            case "корм":
+            case "натуральная еда":
+            case "консервы":
+                System.out.println(kittyEat);
+                break;
+            default:
+                System.out.println("Ошибка ввода!");
+         }
+        }else {
             System.out.println(full);
         }
-        return satiety;
+
+        return food;
+    }
+
+    public boolean eat(){
+        eat(food, satiety);
+        return true;
     }
 
         public  boolean play(){
@@ -171,11 +203,11 @@ public class Kotik {
         }
 
         public void liveAnotherDay () {
+        eat();
         for (int i = 0; i < 24; i++){
             int a = (int) (Math.random()*6+1);
             switch (a) {
                 case 1:
-                    System.out.println(i + " час " + eat());
                     break;
                 case 2:
                     System.out.println(i + " час " + play());
@@ -193,7 +225,7 @@ public class Kotik {
                     System.out.println(i + " час " + goForAWalk());
                     break;
             }
+            }
         }
 
         }
-    }
